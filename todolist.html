@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>To-Do List</title>
+  </head>
+  <body>
+    <h1>To-Do List</h1>
+    <input type="text" class="task" placeholder="Enter a task" />
+    <button class="Add">Add Task</button>
+    <button class="removeTask">Remove</button>
+    <ul class="taskList"></ul>
+  </body>
+  <script>
+    const taskList = document.querySelector(".taskList");
+    const RemoveEl = document.querySelector(".removeTask");
+    const addTask = document.querySelector(".Add");
+
+    addTask.addEventListener("click", () => {
+      const taskInput = document.querySelector(".task");
+      const newTask = document.createElement("li");
+      let task = taskInput.value;
+
+      if (task.trim() != "") {
+        newTask.innerText = task;
+        taskList.appendChild(newTask);
+        taskInput.value = "";
+      }
+
+      //     if(newTask){
+      // RemoveEl.addEventListener("click",()=>{      //<--need to fix this part
+
+      //   taskList.remove();
+
+      // });
+
+      //     }});
+    });
+
+    RemoveEl.addEventListener("click", () => {
+      if (taskList.lastChild) {
+        //   <---- this is improved version
+        taskList.lastChild.remove();
+      }
+    }); //relocate this part out of the Add button's event listener
+  </script>
+</html>
+<!-- 
+I have the problem is that,
+When i press remove button,whole list is deleted,
+how can i fix it?
+
+thank you so much! -->
+
+<!-- another solution
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>To-Do List</title>
+  </head>
+  <body>
+    <h1>To-Do List</h1>
+    <input type="text" class="task" placeholder="Enter a task">
+    <button class="addTask">Add Task</button>
+    <ul class="taskList"></ul>
+
+    <script>
+      const taskList = document.querySelector(".taskList");
+      const addTaskButton = document.querySelector(".addTask");
+
+      addTaskButton.addEventListener("click", () => {
+        const taskInput = document.querySelector(".task");
+        const task = taskInput.value.trim();
+
+        if (task !== "") {
+          const newTask = document.createElement("li");
+          newTask.innerText = task;
+
+          const removeButton = document.createElement("button");
+          removeButton.innerText = "Remove";
+          removeButton.addEventListener("click", () => {
+            newTask.remove();
+          });
+
+          newTask.appendChild(removeButton);
+          taskList.appendChild(newTask);
+          taskInput.value = "";
+        }
+      });
+    </script>
+  </body>
+</html> -->
