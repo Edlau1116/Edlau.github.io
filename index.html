@@ -32,20 +32,32 @@
         list-style-type: none;
         text-align: center;
       }
+      div.ul {
+        display: flex;
+        flex-direction: column;
+      }
+      .top-container {
+        display: flex;
+        flex-direction: column;
+      }
     </style>
   </head>
   <body>
-    <div class="container my-36">
-      <h1 class="head text-gray-600 m-2.5">To-Do List</h1>
-      <input
-        type="text"
-        class="task"
-        placeholder="Enter a task"
-        style="text-align: center"
-      />
-      <div class="Form">
-        <button class="Add" id="Add">Add Task</button>
-        <button class="removeTask" id="removeTask">Remove</button>
+    <div class="top-container">
+      <div class="container my-36">
+        <h1 class="head text-gray-600 m-2.5">To-Do List</h1>
+        <input
+          type="text"
+          class="task"
+          placeholder="Enter a task"
+          style="text-align: center"
+        />
+        <div class="Form">
+          <button class="Add" id="Add">Add Task</button>
+          <button class="removeTask" id="removeTask">Remove</button>
+        </div>
+      </div>
+      <div class="ul">
         <ul class="taskList" id="taskList"></ul>
       </div>
     </div>
