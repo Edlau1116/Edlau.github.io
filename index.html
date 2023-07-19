@@ -1,133 +1,42 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <script src="https://cdn.tailwindcss.com"></script>
-
     <title>To-Do List</title>
     <style>
-      body {
-        display: flex;
-        justify-content: center;
-        align-items: center;
+      button {
+        padding: 5px;
+        border-radius: 5px;
+        margin-top: 15px;
       }
-      .head {
-        text-align: center;
-      }
-
       .container {
-        width: 300px !important;
-        border: 1px solid black;
-        border-radius: 10px;
-        box-shadow: 0px 1px 2px 2px rgba(0, 0, 0, 0.2);
-        display: block;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
         text-align: center;
-        padding: 0;
-        margin: 0;
       }
-      .Form {
-        display: block;
-        margin: 15px;
-      }
-      ul {
+      li {
         list-style-type: none;
-        text-align: center;
       }
-      div.ul {
-        display: flex;
-        flex-direction: column;
-      }
-      .top-container {
-        display: flex;
-        flex-direction: column;
+      #NewtaskEl{
+
+        font-size: 20px;
+        border: 2px solid rgb(217, 212, 212);
+        padding: 5%;
+        border-radius: 5px;
+        margin-top: 15px;
+
       }
     </style>
   </head>
   <body>
-    <div class="top-container">
-      <div class="container my-36">
-        <h1 class="head text-gray-600 m-2.5">To-Do List</h1>
-        <input
-          type="text"
-          class="task"
-          placeholder="Enter a task"
-          style="text-align: center"
-        />
-        <div class="Form">
-          <button class="Add" id="Add">Add Task</button>
-          <button class="removeTask" id="removeTask">Remove</button>
-        </div>
-      </div>
-      <div class="ul">
-        <ul class="taskList" id="taskList"></ul>
-      </div>
+    <div class="container">
+        <div>
+      <h1>To-Do List</h1>
+      <input type="text" class="task" placeholder="Enter a task" />
+      <button class="addTask">Add Task</button>
+      <ul class="taskList"></ul>
     </div>
-  </body>
-  <script>
-    let idEl = function (id) {
-      return document.querySelector(id);
-    };
-    // let tagEl = function (tag) {
-    //   return document.getElementsByTagName(tag);
-    // };
-    // let classEl = function (className) {
-    //   return document.getElementsByClassName(className);
-    // };
-    const addTask = idEl("#Add");
-    const RemoveEl = idEl("#removeTask");
-    const taskList = idEl("#taskList");
-
-    // const taskList = document.querySelector(".taskList");
-    // const RemoveEl = document.querySelector(".removeTask");
-    // const addTask = document.querySelector(".Add");
-
-    addTask.addEventListener("click", () => {
-      const taskInput = document.querySelector(".task");
-      const newTask = document.createElement("li");
-      let task = taskInput.value;
-
-      if (task.trim() != "") {
-        newTask.innerText = task;
-        taskList.appendChild(newTask);
-        taskInput.value = "";
-      }
-
-      //     if(newTask){
-      // RemoveEl.addEventListener("click",()=>{      //<--need to fix this part
-
-      //   taskList.remove();
-
-      // });
-
-      //     }});
-    });
-
-    RemoveEl.addEventListener("click", () => {
-      if (taskList.lastChild) {
-        //   <---- this is improved version
-        taskList.lastChild.remove();
-      }
-    }); //relocate this part out of the Add button's event listener
-  </script>
-</html>
-<!-- 
-I have the problem is that,
-When i press remove button,whole list is deleted,
-how can i fix it?
-
-thank you so much! -->
-
-<!-- another solution
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>To-Do List</title>
-  </head>
-  <body>
-    <h1>To-Do List</h1>
-    <input type="text" class="task" placeholder="Enter a task">
-    <button class="addTask">Add Task</button>
-    <ul class="taskList"></ul>
-
     <script>
       const taskList = document.querySelector(".taskList");
       const addTaskButton = document.querySelector(".addTask");
@@ -138,6 +47,7 @@ thank you so much! -->
 
         if (task !== "") {
           const newTask = document.createElement("li");
+          newTask.id = "NewtaskEl";
           newTask.innerText = task;
 
           const removeButton = document.createElement("button");
@@ -153,4 +63,4 @@ thank you so much! -->
       });
     </script>
   </body>
-</html> -->
+</html>
