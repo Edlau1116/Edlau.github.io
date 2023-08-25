@@ -12,6 +12,7 @@ function addTask() {
   let num = 0;
   addTaskButton.addEventListener("click", () => {
     let enterTask = prompt("Enter a task");
+    if (enterTask === null) return;
     num++;
 
     const newTask = document.createElement("li");
