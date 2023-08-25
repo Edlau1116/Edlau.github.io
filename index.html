@@ -2,65 +2,22 @@
 <html>
   <head>
     <title>To-Do List</title>
-    <style>
-      button {
-        padding: 5px;
-        border-radius: 5px;
-        margin-top: 15px;
-      }
-      .container {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        text-align: center;
-      }
-      li {
-        list-style-type: none;
-      }
-      #NewtaskEl{
-
-        font-size: 20px;
-        border: 2px solid rgb(217, 212, 212);
-        padding: 5%;
-        border-radius: 5px;
-        margin-top: 15px;
-
-      }
-    </style>
+    <style></style>
   </head>
   <body>
+    <link rel="stylesheet" href="./style.css" />
+    <!-- <input type="text" class="task" placeholder="Enter a task" /> -->
     <div class="container">
-        <div>
-      <h1>To-Do List</h1>
-      <input type="text" class="task" placeholder="Enter a task" />
-      <button class="addTask">Add Task</button>
+      <h1 id="date"></h1>
+      <button class="addTask"><i class="fa-solid fa-plus"></i></button>
       <ul class="taskList"></ul>
     </div>
-    <script>
-      const taskList = document.querySelector(".taskList");
-      const addTaskButton = document.querySelector(".addTask");
-
-      addTaskButton.addEventListener("click", () => {
-        const taskInput = document.querySelector(".task");
-        const task = taskInput.value.trim();
-
-        if (task !== "") {
-          const newTask = document.createElement("li");
-          newTask.id = "NewtaskEl";
-          newTask.innerText = task;
-
-          const removeButton = document.createElement("button");
-          removeButton.innerText = "Remove";
-          removeButton.addEventListener("click", () => {
-            newTask.remove();
-          });
-
-          newTask.appendChild(removeButton);
-          taskList.appendChild(newTask);
-          taskInput.value = "";
-        }
-      });
-    </script>
+    <div id="taskdata"></div>
+    <script src="./index.js"></script>
+    <script
+      src="https://kit.fontawesome.com/0efdba6aae.js"
+      crossorigin="anonymous"
+    ></script>
+    <script></script>
   </body>
 </html>
