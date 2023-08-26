@@ -2,6 +2,9 @@ const taskList = document.querySelector(".taskList");
 const addTaskButton = document.querySelector(".addTask");
 const dates = document.querySelector("#date");
 const taskdata = document.querySelector("#taskdata");
+const divEl = document.querySelector(".container");
+const timeEl = document.getElementById("count");
+timeEl.style.marginLeft = "15%";
 
 const currentDay = new Date().toDateString();
 
@@ -46,7 +49,17 @@ function addTask() {
     });
   });
 }
+function setDate() {
+  const now = new Date();
+  const seconds = now.getSeconds();
+  const mins = now.getMinutes();
+  const hours = now.getHours();
+  timeEl.innerHTML = `${hours} : ${mins} : ${seconds}  `;
+  // console.log(hours, mins, seconds);
+}
+setInterval(setDate, 1000);
 addTask();
+// setInterval(setDate, 1000);
 
 // const taskList = document.querySelector(".taskList");
 // const addTaskButton = document.querySelector(".addTask");
