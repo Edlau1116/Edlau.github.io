@@ -5,6 +5,7 @@ const taskdata = document.querySelector("#taskdata");
 const divEl = document.querySelector(".container");
 const timeEl = document.getElementById("count");
 timeEl.style.marginLeft = "15%";
+timeEl.style.fontSize = "45px";
 
 const currentDay = new Date().toDateString();
 
