@@ -16,9 +16,12 @@ function addTask() {
     num++;
 
     const newTask = document.createElement("li");
+    const delTask = document.createElement("button");
     const taskClass = newTask.classList.add("NewtaskEl");
+
     console.log(taskClass);
     const taskId = `task-${num}`; // Generate a unique id for the task
+
     // console.log(taskId);
     newTask.id = taskId;
     // console.log(newTask.id);
@@ -26,11 +29,20 @@ function addTask() {
     newTask.innerHTML = `<h5 id="mun">${num}.</h5>  <h5>${enterTask}</h5>`;
 
     taskdata.appendChild(newTask);
+    taskdata.appendChild(delTask);
 
     let finishedTask = document.getElementById(taskId);
     // console.log(finishedTask);
     finishedTask.addEventListener("click", () => {
       finishedTask.classList.toggle("finishedTask");
+    });
+    delTask.classList.add("delTask");
+
+    delTask.innerHTML = "Delete";
+    delTask.addEventListener("click", () => {
+      finishedTask.remove();
+      delTask.remove();
+      num--;
     });
   });
 }
