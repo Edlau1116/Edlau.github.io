@@ -4,8 +4,12 @@ const dates = document.querySelector("#date");
 const taskdata = document.querySelector("#taskdata");
 const divEl = document.querySelector(".container");
 const timeEl = document.getElementById("count");
+const timerEl = document.getElementById("time");
+const btnEl = document.querySelector("#btn");
+const timeSetEl = document.querySelector("#settimer");
 timeEl.style.marginLeft = "15%";
-timeEl.style.fontSize = "45px";
+timeEl.style.fontSize = "60px";
+divEl.style.fontSize = "60px";
 
 const currentDay = new Date().toDateString();
 
@@ -60,6 +64,48 @@ function setDate() {
 }
 setInterval(setDate, 1000);
 addTask();
+let second = "";
+timeSetEl.addEventListener("change", (event) => {
+  second = parseInt(event.target.value.trim());
+  console.log(event.target.value);
+});
+
+// let second = 120;
+let myInterval = -1;
+btnEl.addEventListener("click", (event) => {
+  // console.log(myInterval);
+  if (myInterval == -1) {
+    myInterval = setInterval(() => {
+      second--;
+      timerEl.innerHTML = `${second} 秒`;
+    }, 1000);
+  } else {
+    console.log(myInterval);
+    clearInterval(myInterval);
+    myInterval = -1;
+  }
+});
+
+// let second = prompt("Enter a time");
+// const countDown = setInterval(() => {
+//   second--;
+//   displayTime(second);
+//   if (second === 0) {
+//     clearInterval(countDown);
+//     timerEl.innerHTML = "Time's up!";
+//   }
+// }, 1000);
+// console.log(countDown);
+// function displayTime(second) {
+//   const min = Math.floor(second / 60);
+//   const sec = Math.floor(second % 60);
+//   console.log(min, sec);
+//   console.log(timerEl);
+//   timerEl.innerHTML = `${min} 分 ${sec} 秒`;
+// }
+
+// displayTime(240);
+
 // setInterval(setDate, 1000);
 
 // const taskList = document.querySelector(".taskList");
