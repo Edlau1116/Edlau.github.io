@@ -64,116 +64,48 @@ function setDate() {
 }
 setInterval(setDate, 1000);
 addTask();
-let second = "";
-timeSetEl.addEventListener("change", (event) => {
-  second = parseInt(event.target.value.trim());
-  console.log(event.target.value);
-});
 
-// let second = 120;
-let myInterval = -1;
-btnEl.addEventListener("click", (event) => {
-  // console.log(myInterval);
-  if (myInterval == -1) {
-    myInterval = setInterval(() => {
-      second--;
-      timerEl.innerHTML = `${second} 秒`;
-    }, 1000);
-  } else {
-    console.log(myInterval);
-    clearInterval(myInterval);
-    myInterval = -1;
-  }
-});
+// let minuteSet = prompt("Enter a time in minutes");
+// let minute = parseInt(minuteSet);
+// let minOverSixty = minute > 60 ? minute % 60 : minute;
+// let second = parseInt(minute * 60); //second = 60 + second % 60;
+// // let second = 0;
+// // minute > 0 && (second = 0 + (second % 60));
+// // let second = 60 + (secondBasic % 60);
+// let hour = parseInt(minute / 60);
 
-// let second = prompt("Enter a time");
-// const countDown = setInterval(() => {
-//   second--;
-//   displayTime(second);
-//   if (second === 0) {
-//     clearInterval(countDown);
-//     timerEl.innerHTML = "Time's up!";
+// console.log(second, minOverSixty, hour);
+
+// let secondInput = prompt("Enter a time in seconds");
+// let second = parseInt(secondInput);
+// let min = parseInt(second / 60);
+// let hour = parseInt(min / 60);
+
+// let secondInput = prompt("Enter a time in seconds");
+let second = parseInt(secondInput);
+
+let min = Math.floor(second / 60); // Calculate minutes and round down using Math.floor
+let hour = Math.floor(min / 60); // Calculate hours and round down using Math.floor
+
+min = min % 60; // Calculate remaining minutes after subtracting hours
+
+console.log(hour, min, second % 60); // Output the result
+
+//output 0 2 120, if second = 120  should be print 0 2 0
+//input second = 120, output 0 2 0 fix it first
+// function setTimer() {
+//   if (second > 0) {
+//     second--;
+//     if (second === 0 && minOverSixty > 0) {
+//       second = 60;
+//       minOverSixty--;
+//     }
+//     if (minOverSixty === 0 && hour > 0) {
+//       minOverSixty = 60;
+//       hour--;
+//     }
 //   }
-// }, 1000);
-// console.log(countDown);
-// function displayTime(second) {
-//   const min = Math.floor(second / 60);
-//   const sec = Math.floor(second % 60);
-//   console.log(min, sec);
-//   console.log(timerEl);
-//   timerEl.innerHTML = `${min} 分 ${sec} 秒`;
+//   // timerEl.innerHTML = `${hour} : ${minOverSixty} : ${second}`;
+//   console.log(second, minOverSixty, hour);
 // }
-
-// displayTime(240);
-
-// setInterval(setDate, 1000);
-
-// const taskList = document.querySelector(".taskList");
-// const addTaskButton = document.querySelector(".addTask");
-// const dates = document.querySelector("#date");
-// const taskdata = document.querySelector("#taskdata");
-
-// const currentDay = new Date().toDateString();
-
-// dates.innerHTML = currentDay;
-// console.log(currentDay);
-
-// function addTask() {
-//   let num = 0;
-//   addTaskButton.addEventListener("click", () => {
-//     let enterTask = prompt("Enter a task");
-//     num++;
-
-//     const newTask = document.createElement("li");
-//     newTask.id = "NewtaskEl";
-//     console.log(newTask.id);
-//     newTask.innerHTML = `${num} | ${enterTask}`;
-
-//     taskdata.appendChild(newTask);
-
-//     let finishedTask = document.getElementById("NewtaskEl");
-//     console.log(finishedTask);
-//     finishedTask.addEventListener("click", () => {
-//       finishedTask.classList.toggle("finishedTask");
-//       // finishedTask.style.textDecoration = "line-through";
-//     });
-//   });
-// }
-// addTask();
-
-// num = taskList.childElementCount + 1;
-//   const taskInput = document.querySelector(".task");
-//   const task = taskInput.value.trim();
-
-//   if (task !== "") {
-//     const newTask = document.createElement("li");
-//     newTask.id = "NewtaskEl";
-//     newTask.innerHTML = `${num} | ${task}`;
-
-//     const removeButton = document.createElement("button");
-//     removeButton.id = "removeButton";
-//     removeButton.innerText = "Remove";
-//     removeButton.addEventListener("click", () => {
-//       newTask.remove();
-//     });
-
-//     newTask.appendChild(removeButton);
-//     taskInput.value = "";
-//   }
-
-// const currentMonth = new Date();
-// const months = [
-//   "January",
-//   "February",
-//   "March",
-//   "April",
-//   "May",
-//   "June",
-//   "July",
-//   "August",
-//   "September",
-//   "October",
-//   "November",
-//   "December",
-// ];
-// console.log(months[currentMonth.getMonth()]);
+// setInterval(setTimer, 1000);
