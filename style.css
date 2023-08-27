@@ -5,6 +5,7 @@ button {
 }
 .container {
   /* width: 40%; */
+  color: darkgrey;
   display: flex;
   flex-direction: row;
   align-items: center;
