@@ -82,6 +82,7 @@ addTask();
 // let hour = parseInt(min / 60);
 
 // let secondInput = prompt("Enter a time in seconds");
+let secondInput = 60;
 let second = parseInt(secondInput);
 
 let min = Math.floor(second / 60); // Calculate minutes and round down using Math.floor

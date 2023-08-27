@@ -7,12 +7,15 @@
   <body>
     <link rel="stylesheet" href="./style.css" />
     <!-- <input type="text" class="task" placeholder="Enter a task" /> -->
-    <div class="container">
+   <div ontouchstart="dragging()">
+    <div class="container draggable" >
       <h1 id="date"></h1>
       <button class="addTask"><i class="fa-solid fa-plus fa-2xl" id = "icon"></i></button>
       <div id="count"></div>
       <ul class="taskList"></ul>
     </div>
+    </div>
+  
     <div id="tools">
       <div id="taskdata"></div>
       </div>
@@ -32,10 +35,14 @@
     <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
 
     <script>
+      function dragging(){
       $(document).ready(function () {
         $(".draggable").draggable();
         console.log("draggable");
+
       });
+      }
+  
     </script>
   </body>
 </html>
