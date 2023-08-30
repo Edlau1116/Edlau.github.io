@@ -7,6 +7,8 @@ const timeEl = document.getElementById("count");
 const timerEl = document.getElementById("time");
 const btnEl = document.querySelector("#btn");
 const timeSetEl = document.querySelector("#settimer");
+const newsEl = document.querySelector(".news");
+const rootEl = document.querySelector(".root");
 timeEl.style.marginLeft = "15%";
 timeEl.style.fontSize = "60px";
 divEl.style.fontSize = "60px";
@@ -64,6 +66,23 @@ function setDate() {
 }
 setInterval(setDate, 1000);
 addTask();
+
+async function news() {
+  const response = await fetch(
+    "https://newsapi.org/v2/top-headlines?country=hk&apiKey=28ea0b454b5c421b84a911144c1d18d4"
+  );
+  const newsResult = await response.json();
+
+  const { articles } = newsResult;
+  articles.forEach((article) => {
+    rootEl.innerHTML += `</br><h4>${article.author}${article.title}</h4></br>${article.publishedAt}</br>`;
+  });
+}
+news();
+
+newsEl.addEventListener("click", () => {
+  rootEl.classList.toggle("active");
+});
 
 // let minuteSet = prompt("Enter a time in minutes");
 // let minute = parseInt(minuteSet);
