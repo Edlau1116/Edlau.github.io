@@ -89,7 +89,6 @@ li {
 }
 .root {
   text-align: center;
-  background-color: red;
   padding: 50px;
   border: rgba(211, 211, 211, 0.3) solid 2px;
   box-shadow: rgba(211, 211, 211, 0.3) 0px 0px 10px;
@@ -99,7 +98,7 @@ li {
   font-size: medium;
   display: none;
   width: 100%;
-  height: auto;
+  height: 200vh;
 }
 .active {
   display: block;
