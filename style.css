@@ -89,6 +89,8 @@ li {
 }
 .root {
   text-align: center;
+  color: red;
+  background-color: blue;
   padding: 50px;
   border: rgba(211, 211, 211, 0.3) solid 2px;
   box-shadow: rgba(211, 211, 211, 0.3) 0px 0px 10px;
